@@ -12,8 +12,6 @@ public class Cart extends BaseTest {
         driver.navigate().to("https://www.saucedemo.com/");
     }
 
-    @Test
-
 
 
 }
