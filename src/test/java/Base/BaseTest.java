@@ -3,6 +3,7 @@ package Base;
 import Pages.CartPage;
 import Pages.LoginPage;
 import Pages.ProductPage;
+import Pages.SidebarPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,6 +21,7 @@ public class BaseTest {
     public LoginPage loginPage;
     public ProductPage productPage;
     public CartPage cartPage;
+    public SidebarPage sidebarPage;
 
 
     @BeforeClass
@@ -33,6 +35,7 @@ public class BaseTest {
         loginPage = new LoginPage();
         productPage = new ProductPage();
         cartPage = new CartPage();
+        sidebarPage = new SidebarPage();
 
     }
 

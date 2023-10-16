@@ -4,8 +4,6 @@ import Base.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductPage extends BaseTest {
@@ -29,9 +27,14 @@ public class ProductPage extends BaseTest {
     @FindBy(className = "shopping_cart_badge")
     public WebElement shoppingCartBadge;
 
+    @FindBy(id = "react-burger-menu-btn")
+    public WebElement burgerMenuButton;
+
     //*************************************************
 
-
+    public void clickOnBurgerMenuButton(){
+        burgerMenuButton.click();
+    }
 
     public void clickOnAddAllToCartButtons(){
         for(WebElement b: addToCartButton){
@@ -39,5 +42,10 @@ public class ProductPage extends BaseTest {
         }
     }
 
+    public void removeAllItemsFromCart(){
+        for(WebElement r: removeButtons){
+            r.click();
+        }
+    }
 
 }

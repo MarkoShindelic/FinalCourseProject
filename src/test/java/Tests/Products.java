@@ -21,7 +21,7 @@ public class Products extends BaseTest {
     }
 
     @Test
-    public void userCanAddAllItemsToCart(){
+    public void userCanAddAllItemsToCart() {
         String expectedNumberOfCartItems = "";
 
         Assert.assertTrue(productPage.shoppingCartButton.isDisplayed());
@@ -37,6 +37,46 @@ public class Products extends BaseTest {
 
             Assert.assertEquals(productPage.removeButtons.get(i).getText(), "Remove");
         }
+
+    }
+
+    @Test
+    public void removeAllItemsFromCart() {
+
+        productPage.clickOnAddAllToCartButtons();
+
+        String actualNumberOfCartItems = productPage.shoppingCartButton.getText();
+        String expectedNumberOfCartItems = String.valueOf(productPage.removeButtons.size());
+
+        Assert.assertEquals(actualNumberOfCartItems, expectedNumberOfCartItems);
+
+        productPage.removeAllItemsFromCart();
+
+        actualNumberOfCartItems = productPage.shoppingCartButton.getText();
+        expectedNumberOfCartItems = "";
+
+        Assert.assertEquals(actualNumberOfCartItems, expectedNumberOfCartItems);
+
+        for (int i = 0; i < productPage.addToCartButton.size(); i++) {
+
+            Assert.assertEquals(productPage.addToCartButton.get(i).getText(), "Add to cart");
+        }
+
+    }
+
+    @Test
+    public void userCanLogout(){
+
+        productPage.clickOnBurgerMenuButton();
+        sidebarPage.clickLogoutButton();
+
+        String currentURL = driver.getCurrentUrl();
+        String expectedURL = "https://www.saucedemo.com/";
+
+        Assert.assertEquals(currentURL, expectedURL);
+        Assert.assertTrue(loginPage.usernameField.isDisplayed());
+        Assert.assertTrue(loginPage.passwordField.isDisplayed());
+        Assert.assertTrue(loginPage.loginButton.isDisplayed());
 
     }
 }
