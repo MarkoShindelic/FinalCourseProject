@@ -1,7 +1,6 @@
 package Tests;
 
 import Base.BaseTest;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -77,6 +76,32 @@ public class Products extends BaseTest {
         Assert.assertTrue(loginPage.usernameField.isDisplayed());
         Assert.assertTrue(loginPage.passwordField.isDisplayed());
         Assert.assertTrue(loginPage.loginButton.isDisplayed());
+
+    }
+
+    @Test
+    public void goToSpecificItemPage(){
+
+        String expectedItem = "Sauce Labs Fleece Jacket";
+
+        productPage.clickSpecificItem(expectedItem);
+
+        String currentURL = driver.getCurrentUrl();
+        String expectedURL = "https://www.saucedemo.com/inventory-item.html?id=5";
+
+        Assert.assertEquals(currentURL, expectedURL);
+
+        String actualItem = inventoryItemPage.itemName.getText();
+        Assert.assertEquals(actualItem, expectedItem);
+
+        //inventoryItemPage.clickAddToCartButton();
+    }
+
+    @Test
+    public void sortingProductsZToA(){
+
+        productPage.selectItemFromDropdownMenu("za");
+        //add some assertions
 
     }
 }
