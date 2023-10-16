@@ -2,28 +2,28 @@ package Tests;
 
 import Base.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class Login extends BaseTest {
 
 
-    @BeforeClass
+    @BeforeMethod
     public void pageSetup() {
         driver.navigate().to("https://www.saucedemo.com/");
     }
 
     @Test
-    public void UserCanLoginWithValidCredentials() {
+    public void UserCanLoginWithValidCredentials()  {
         String validUsername = "standard_user";
         String validPassword = "secret_sauce";
-        String currentURL = driver.getCurrentUrl();
+
 
         loginPage.inputUsername(validUsername);
         loginPage.inputPassword(validPassword);
         loginPage.clickLoginButton();
 
-
+        String currentURL = driver.getCurrentUrl();
         String expectedURL = "https://www.saucedemo.com/inventory.html";
 
         Assert.assertEquals(currentURL, expectedURL);
@@ -34,14 +34,14 @@ public class Login extends BaseTest {
     @Test
     public void userCannotLoginWithEmptyUsername() {
         String invalidUsername = "";
-        String invalidPassword = "secret_sauce";
+        String validPassword = "secret_sauce";
 
         String currentURL = driver.getCurrentUrl();
         String expectedURL = "https://www.saucedemo.com/";
 
 
         loginPage.inputUsername(invalidUsername);
-        loginPage.inputPassword(invalidPassword);
+        loginPage.inputPassword(validPassword);
         loginPage.clickLoginButton();
 
         Assert.assertEquals(currentURL, expectedURL);
@@ -56,14 +56,14 @@ public class Login extends BaseTest {
 
     @Test
     public void userCannotLoginWithEmptyPassword() {
-        String invalidUsername = "standard_user";
+        String validUsername = "standard_user";
         String invalidPassword = "";
 
         String currentURL = driver.getCurrentUrl();
         String expectedURL = "https://www.saucedemo.com/";
 
 
-        loginPage.inputUsername(invalidUsername);
+        loginPage.inputUsername(validUsername);
         loginPage.inputPassword(invalidPassword);
         loginPage.clickLoginButton();
 

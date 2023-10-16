@@ -15,9 +15,12 @@ public class BaseTest {
 
     public static WebDriver driver;
     public WebDriverWait wait;
+
+    //********* Pages **********
     public LoginPage loginPage;
     public ProductPage productPage;
     public CartPage cartPage;
+
 
     @BeforeClass
     public void setUp(){
