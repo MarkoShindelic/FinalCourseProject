@@ -15,6 +15,15 @@ public class CartPage extends BaseTest {
 
     @FindBy(css = ".btn.btn_secondary.btn_small.cart_button")
     public List<WebElement> removeButtons;
+
+    @FindBy(id = "continue-shopping")
+    public WebElement continueShoppingButton;
+
+    @FindBy(id = "checkout")
+    public WebElement checkoutButton;
+
+    @FindBy(className = "cart_item")
+    public List<WebElement> cartItems;
     
     //******************************************************************
     
@@ -24,6 +33,10 @@ public class CartPage extends BaseTest {
             b.click();
         }
         
+    }
+
+    public void clickOnContinueShoppingButton(){
+        continueShoppingButton.click();
     }
 
 }
