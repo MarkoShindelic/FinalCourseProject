@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
-public class Footer extends BaseTest {
+public class FooterTests extends BaseTest {
 
 
     @BeforeMethod

@@ -2,11 +2,10 @@ package Tests;
 
 import Base.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Cart extends BaseTest {
+public class CartTests extends BaseTest {
 
     @BeforeMethod
     public void pageSetup() {

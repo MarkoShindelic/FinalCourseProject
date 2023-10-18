@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Login extends BaseTest {
+public class LoginTests extends BaseTest {
 
 
     @BeforeMethod

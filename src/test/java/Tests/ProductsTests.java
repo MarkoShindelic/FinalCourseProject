@@ -1,14 +1,13 @@
 package Tests;
 
 import Base.BaseTest;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class Products extends BaseTest {
+public class ProductsTests extends BaseTest {
 
     @BeforeMethod
     public void pageSetup() {
