@@ -21,47 +21,33 @@ public class Footer extends BaseTest {
         loginPage.clickLoginButton();
     }
 
-    @Test
-    public void userCanVisitTwitterPage() {
+     @Test
+    public void userCanVisitAllLinkedPages(){
 
         footerPage.clickOnTwitterButton();
+        footerPage.clickOnFacebookButton();
+        footerPage.clickOnLinkedInButton();
 
         ArrayList<String> tabList = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabList.get(1));
+
+        driver.switchTo().window(tabList.get(3));
 
         String expectedURL = "https://twitter.com/saucelabs";
         String actualURL = driver.getCurrentUrl();
 
         Assert.assertEquals(actualURL, expectedURL);
 
-    }
+        driver.switchTo().window(tabList.get(2));
 
-    @Test
-    public void userCanVisitFacebookPage() {
-
-        footerPage.clickOnFacebookButton();
-
-        ArrayList<String> tabList = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabList.get(1));
-
-
-        String expectedURL = "https://www.facebook.com/saucelabs";
-        String actualURL = driver.getCurrentUrl();
+        expectedURL = "https://www.facebook.com/saucelabs";
+        actualURL = driver.getCurrentUrl();
 
         Assert.assertEquals(actualURL, expectedURL);
 
-    }
-
-    @Test
-    public void userCanVisitLinkedInPage() {
-
-        footerPage.clickOnLinkedInButton();
-
-        ArrayList<String> tabList = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabList.get(1));
 
-        String expectedURL = "https://www.linkedin.com/company/sauce-labs/";
-        String actualURL = driver.getCurrentUrl();
+        expectedURL = "https://www.linkedin.com/company/sauce-labs/";
+        actualURL = driver.getCurrentUrl();
 
         Assert.assertEquals(actualURL, expectedURL);
 
