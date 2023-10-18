@@ -130,6 +130,28 @@ public class ProductPage extends BaseTest {
         return newList;
     }
 
+    public List<Double> sortListLowToHigh(List<WebElement> list) {
 
+        List<Double> newList = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            newList.add(Double.parseDouble(list.get(i).getText().replace("$", "")));
+        }
+        newList.sort(Comparator.naturalOrder());
+
+        return newList;
+    }
+
+    public List<Double> sortListHighToLow(List<WebElement> list) {
+
+        List<Double> newList = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            newList.add(Double.parseDouble(list.get(i).getText().replace("$", "")));
+        }
+        newList.sort(Comparator.reverseOrder());
+
+        return newList;
+    }
 
 }

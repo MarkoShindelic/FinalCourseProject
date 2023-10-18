@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+
 public class Footer extends BaseTest {
 
     @BeforeMethod
@@ -24,8 +26,11 @@ public class Footer extends BaseTest {
 
         footerPage.clickOnTwitterButton();
 
+        ArrayList<String> tabList = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabList.get(1));
+
         String expectedURL = "https://twitter.com/saucelabs";
-        String actualURL = footerPage.twitterButton.getAttribute("href");
+        String actualURL = driver.getCurrentUrl();
 
         Assert.assertEquals(actualURL, expectedURL);
 
@@ -36,8 +41,12 @@ public class Footer extends BaseTest {
 
         footerPage.clickOnFacebookButton();
 
+        ArrayList<String> tabList = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabList.get(1));
+
+
         String expectedURL = "https://www.facebook.com/saucelabs";
-        String actualURL = footerPage.facebookButton.getAttribute("href");
+        String actualURL = driver.getCurrentUrl();
 
         Assert.assertEquals(actualURL, expectedURL);
 
@@ -48,8 +57,11 @@ public class Footer extends BaseTest {
 
         footerPage.clickOnLinkedInButton();
 
+        ArrayList<String> tabList = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabList.get(1));
+
         String expectedURL = "https://www.linkedin.com/company/sauce-labs/";
-        String actualURL = footerPage.linkedInButton.getAttribute("href");
+        String actualURL = driver.getCurrentUrl();
 
         Assert.assertEquals(actualURL, expectedURL);
 
