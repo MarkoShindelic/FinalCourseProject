@@ -1,9 +1,11 @@
 package Tests;
 
 import Base.BaseTest;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import java.util.List;
 
 public class Products extends BaseTest {
@@ -127,7 +129,7 @@ public class Products extends BaseTest {
     }
 
     @Test
-    public void addAnItemToCart(){
+    public void addAnItemToCart() {
 
         productPage.addRandomItemToCart();
 
@@ -172,8 +174,6 @@ public class Products extends BaseTest {
             Assert.assertEquals(list.get(i), productPage.listOfProducts().get(i));
 
         }
-
-
     }
 
     @Test
@@ -181,15 +181,28 @@ public class Products extends BaseTest {
 
         productPage.selectItemFromDropdownMenu("hilo");
         //add some assertions
+        List<Double> list = productPage.sortListHighToLow(productPage.priceList);
 
+
+        for (int i = 0; i < list.size(); i++) {
+
+            Assert.assertEquals(list.get(i), Double.parseDouble(productPage.priceList.get(i).getText().replace("$", "")));
+
+        }
     }
 
     @Test
-    public void sortingProductsLowToHigh()  {
+    public void sortingProductsLowToHigh() {
 
         productPage.selectItemFromDropdownMenu("lohi");
 
+        List<Double> list = productPage.sortListLowToHigh(productPage.priceList);
 
+
+        for (int i = 0; i < list.size(); i++) {
+
+            Assert.assertEquals(list.get(i), Double.parseDouble(productPage.priceList.get(i).getText().replace("$", "")));
+        }
     }
 
 

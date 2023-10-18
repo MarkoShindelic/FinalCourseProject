@@ -1,6 +1,7 @@
 package Tests;
 
 import Base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,6 +21,24 @@ public class Cart extends BaseTest {
         loginPage.clickLoginButton();
     }
 
+    @Test
+    public void userCanReturnToProductsPage(){
+
+        productPage.addRandomItemToCart();
+        productPage.clickOnCartButton();
+        cartPage.clickOnContinueShoppingButton();
+
+        String expectedNumberOfCartItems = String.valueOf(productPage.removeButtons.size());
+        String actualNumberOfCartItems = productPage.shoppingCartBadge.getText();
+
+        String expectedURL = "https://www.saucedemo.com/inventory.html";
+        String actualURL = driver.getCurrentUrl();
+
+        Assert.assertEquals(actualNumberOfCartItems, expectedNumberOfCartItems);
+        Assert.assertEquals(actualURL, expectedURL);
+
+
+    }
 
 
 
