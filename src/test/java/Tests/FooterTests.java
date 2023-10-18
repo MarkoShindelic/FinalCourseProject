@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
-public class FooterTests extends BaseTest {
-
+public class Footer extends BaseTest {
 
     @BeforeMethod
     public void pageSetUp() {
@@ -22,8 +21,7 @@ public class FooterTests extends BaseTest {
         loginPage.clickLoginButton();
     }
 
-
-    @Test
+     @Test
     public void userCanVisitAllLinkedPages(){
 
         footerPage.clickOnTwitterButton();
