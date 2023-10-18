@@ -26,6 +26,10 @@ public class CartPage extends BaseTest {
     public List<WebElement> cartItems;
     
     //******************************************************************
+
+    public void clickOnCheckoutButton(){
+        checkoutButton.click();
+    }
     
     public void clickOnAllRemoveButtons(){
 

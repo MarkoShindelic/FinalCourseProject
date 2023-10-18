@@ -36,9 +36,7 @@ public class CartTests extends BaseTest {
         Assert.assertEquals(actualNumberOfCartItems, expectedNumberOfCartItems);
         Assert.assertEquals(actualURL, expectedURL);
 
-
     }
-
 
 
 }

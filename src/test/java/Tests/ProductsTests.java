@@ -142,8 +142,6 @@ public class ProductsTests extends BaseTest {
 
         Assert.assertEquals(String.valueOf(cartPage.cartItems.size()), "1");
 
-        cartPage.clickOnContinueShoppingButton();
-
     }
 
     @Test

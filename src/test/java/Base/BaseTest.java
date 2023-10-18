@@ -22,6 +22,9 @@ public class BaseTest {
     public SidebarPage sidebarPage;
     public InventoryItemPage inventoryItemPage;
     public FooterPage footerPage;
+    public CheckoutStepOnePage checkoutStepOnePage;
+    public CheckoutStepTwoPage checkoutStepTwoPage;
+    public CheckoutCompletePage checkoutCompletePage;
     public ExcelReader excelReader;
 
 
@@ -41,6 +44,9 @@ public class BaseTest {
         sidebarPage = new SidebarPage();
         inventoryItemPage = new InventoryItemPage();
         footerPage = new FooterPage();
+        checkoutStepOnePage = new CheckoutStepOnePage();
+        checkoutStepTwoPage = new CheckoutStepTwoPage();
+        checkoutCompletePage = new CheckoutCompletePage();
 
     }
 

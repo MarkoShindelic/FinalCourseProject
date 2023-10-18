@@ -98,9 +98,9 @@ public class ProductPage extends BaseTest {
     public void addRandomItemToCart() {
 
         int min = 0;
-        int max = inventoryList.size() - 1;
+        int max = addToCartButton.size();
 
-        int randomNumber = (int) Math.floor(Math.random() * (max - min + 1) + min);
+        int randomNumber = (int) Math.floor(Math.random() * (max - min) + min);
 
         addToCartButton.get(randomNumber).click();
 
